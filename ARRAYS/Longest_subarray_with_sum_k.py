@@ -56,7 +56,9 @@ def longestSubarrayTwoPointer(nums , k):
 # num = [2,3,5]
 num = [1,2,1,1,1,4]
 k1 = 5
-# print(longestSubarrayWithSumk(num , k1))
+print(longestSubarray(num , k1))
+print(longestSubarray2(num , k1))
+print(longestSubarrayWithSumk(num , k1))
 print(longestSubarrayTwoPointer(num , k1))
 
 
