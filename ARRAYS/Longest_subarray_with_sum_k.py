@@ -8,6 +8,8 @@ def longestSubarray(nums , k):
             if sum == k:
                 length = max(length , j-i+1)
     return length
+    # T(n) = O(n^3)
+    # S(n) = O(1)
 
 def longestSubarray2(nums , k):
     length = 0
@@ -18,6 +20,8 @@ def longestSubarray2(nums , k):
             if sum == k:
                 length = max(length , j-i+1)
     return length
+    # T(n) = O(n^2)
+    # S(n) = O(1)
 
 def longestSubarrayWithSumk(nums , k):
     prefix_sum = 0
@@ -31,9 +35,12 @@ def longestSubarrayWithSumk(nums , k):
         if rem not in hash_map:
             hash_map[prefix_sum] = i
     return length
+    # T(n) = O(n)
+    # S(n) = O(n)
 
 
 def longestSubarrayTwoPointer(nums , k):
+    # Work only for array that is containing positive element.
     i = j = 0
     prefix_sum = nums[0]
     max_len = 0
@@ -51,9 +58,10 @@ def longestSubarrayTwoPointer(nums , k):
             prefix_sum += nums[j]
 
     return max_len
-# num = [1,2,3,1,1,3]
-# num = [2,3,5,1,9]
-# num = [2,3,5]
+    # T(n) = O(2n)
+    # S(n) = O(1)
+
+
 num = [1,2,1,1,1,4]
 k1 = 5
 print(longestSubarray(num , k1))
