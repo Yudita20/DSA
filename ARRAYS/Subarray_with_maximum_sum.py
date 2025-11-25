@@ -7,6 +7,8 @@ def Brute(nums):
                 sum += nums[k]
                 max_sum = max(max_sum , sum)
     return  max_sum
+    #T(n) = O(n^3)
+    #S(n) = O(1)
 
 def Better(nums):
     max_sum = float("-inf")
@@ -16,9 +18,12 @@ def Better(nums):
             sum += nums[j]
             max_sum = max(max_sum , sum)
     return max_sum
+    #T(n) = O(n^2)
+    #S(n) = O(1)
 
 
 def Optimal(nums):
+    #Kadane Algorithm
     max_sum = float("-inf")
     sum = 0
     for i in range(0 , len(nums)):
@@ -27,6 +32,8 @@ def Optimal(nums):
         if sum <0:
             sum = 0
     return max_sum
+    #T(n) = O(n)
+    #S(n) = O(1)
 
 num = [-2,1,-3,4,-1,2,1,-5,4]
 # print(Brute(num))
