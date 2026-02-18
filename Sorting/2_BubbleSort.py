@@ -20,6 +20,3 @@ def bubble_sort(arr):
 
 nums = [10,3,45,62]
 print(bubble_sort(nums))
-
-
-
