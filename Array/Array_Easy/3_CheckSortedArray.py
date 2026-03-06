@@ -8,7 +8,12 @@ def sorted_array(arr,low,high):
 
     return True
 
+
 nums = [3,3,6]
 print(sorted_array(nums,0,len(nums)))
+
+
+
+
 
 
