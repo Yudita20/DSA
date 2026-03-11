@@ -1,3 +1,5 @@
+# LEETCODE:724
+
 def prefix_sum_basics(arr):
     # Creating prefix sum array of length similar to original array
     prefix_sum = [0]*len(arr)
