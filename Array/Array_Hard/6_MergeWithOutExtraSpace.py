@@ -16,7 +16,9 @@ def merge(arr1,m,arr2,n):
         k -= 1
         j -= 1
 
+
     return arr1
+
 
 nums1 = [1,2,3,0,0,0]
 nums2 = [2,5,6]
