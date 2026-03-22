@@ -18,6 +18,8 @@ def partition(arr,start,end):
             arr[i],arr[j] = arr[j],arr[i]
 
     arr[i+1],arr[end] = arr[end],arr[i+1]
+    # Why not write pivot instead of arr[end] even though it is containing the value of arr[end]
+    # Because it will swap values and there will be no effect on the array
 
     return i+1
 
