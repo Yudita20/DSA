@@ -8,12 +8,12 @@ def repeat_and_missing(arr):
         if value > 1:
             repeating = key
 
-    for i in range(1,len(arr)+1):
+    for i in range(1,len(arr)+2):
         if i not in hash_map:
             missing = i
 
     return [repeating , missing]
 
 
-nums = [1,1,2,3,4,5]
+nums = [1,2,3,4,5]
 print(repeat_and_missing(nums))
