@@ -17,7 +17,7 @@ def three_sum(arr):
                 left += 1
                 right -= 1
 
-                while left<right and arr[i] == arr[i-1]:
+                while left<right and arr[left] == arr[left-1]:
                     left += 1
 
                 while left<right and arr[right] == arr[right+1]:
