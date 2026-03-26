@@ -14,9 +14,8 @@ def merge_overlap_brute(arr):
             end = max(end,arr[j][1])
             j += 1
 
-        i = j  #Important condition
-
         res.append([start,end])
+        i = j  # Important condition
 
     return res
 
