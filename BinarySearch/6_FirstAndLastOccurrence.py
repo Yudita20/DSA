@@ -24,7 +24,7 @@ def occur(arr,tar):
             i = j = mid
             while i > 0 and arr[i-1] == tar:
                 i -= 1
-            while j < len(arr) and arr[j+1] == tar:
+            while j < len(arr)-1 and arr[j+1] == tar:
                 j += 1
             return [i,j]
         elif arr[mid] < tar:
