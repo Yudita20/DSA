@@ -1,6 +1,6 @@
 class Python:
     def __init__(self,str):
-        self.number_hashing(arr1)
+        self.number_hashing(arr)
         self.character_hash(str)
 
     def number_hashing(self,arr1):
