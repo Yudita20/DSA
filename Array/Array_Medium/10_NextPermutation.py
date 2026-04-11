@@ -15,8 +15,12 @@ def next_permutation(arr):
             arr[i],arr[index] = arr[index],arr[i]
             break
 
-nums = [2,3,1,3,3]
+    arr[index+1:] = reversed(arr[index+1 : ])
+    return arr
+
+nums = [3,2,1]
 print(next_permutation(nums))
+
 
 
 # T(n) : O(n)
