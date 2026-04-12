@@ -1,10 +1,11 @@
-def consecutive_roses(bloom_days , days , m , k):
+def is_possible(arr , days , m , k):
     count = 0
     bouquet = 0
 
-    for day in bloom_days:
+    for day in nums:
         if day <= days:
             count += 1
+
             if count == k:
                 bouquet += 1
                 count = 0
@@ -13,20 +14,23 @@ def consecutive_roses(bloom_days , days , m , k):
 
     return bouquet >= m
 
-def roses_garden(bloom_days , m , k):
-    if len(bloom_days) < m*k:
-        return -1
 
-    low , high = min(bloom_days) , max(bloom_days)
+def roses_garden(arr , m , k):
+    if len(arr) < m * k:
+        return 0
+
+    low , high = min(arr) , max(arr)
+
     while low <= high:
-        mid = (low+high)//2
+        mid = (low + high) // 2
 
-        if consecutive_roses(bloom_days , mid , m , k):
+        if is_possible(arr , mid , m , k):
             high = mid - 1
         else:
             low = mid + 1
-
     return low
+
 
 nums = [1,10,3,10,2]
 print(roses_garden(nums , 3 , 1))
+
