@@ -1,19 +1,17 @@
-def calculate_total_time(nums , k):
+def calculate_min_hours(nums , k , h):
     total_hours = 0
-    for bananas in nums:
-        total_hours += (bananas + k - 1) // k
+    for i in nums:
+        total_hours += (i+k-1)//k
 
-    return total_hours
+    return total_hours <= h
 
 def min_eating_speed(nums , h):
     low , high = 1 , max(nums)
 
     while low <= high:
-        mid = (low + high) //2
+        mid = (low + high) // 2
 
-        total_hour = calculate_total_time(nums , mid)
-
-        if total_hour <= h:
+        if calculate_min_hours(nums , mid , h):
             high = mid - 1
         else:
             low = mid + 1
@@ -21,5 +19,5 @@ def min_eating_speed(nums , h):
     return low
 
 
-arr = [7,15,6,3]
-print(min_eating_speed(arr , 8))
+arr = [25, 12, 8, 14, 19]
+print(min_eating_speed(arr , 5))
