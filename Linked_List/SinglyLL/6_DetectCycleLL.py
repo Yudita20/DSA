@@ -30,15 +30,15 @@ class Solution:
 
 # Driver code
 if __name__ == "__main__":
-    head = Node(1)
-    second = Node(2)
-    third = Node(3)
+    head = Node(3)
+    second = Node(1)
+    third = Node(7)
     fourth = Node(4)
     fifth = Node(5)
 
     head.next = second
     second.next = third
-    third.next = fourth
+    third.next = head
     fourth.next = fifth
     # Create a loop
     fifth.next = third
