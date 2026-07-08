@@ -44,8 +44,10 @@ class SinglyLL:
             t = t.next
 
     def delete_from_beg(self):
-        if self.head is not None:
-            self.head = self.head.next
+        if self.head is None:
+            return
+
+        self.head = self.head.next
 
     def delete_from_end(self):
         if self.head is None:
@@ -63,22 +65,23 @@ class SinglyLL:
 
         prev.next = None
 
-    def delete_from_mid(self , data):
+    def delete_from_mid(self , value):
         if self.head is None:
             return
 
-        t1 = self.head
-        prev = t1
-        if data == self.head.data:
+        if self.head.data == value:
             self.head = self.head.next
             return
 
-        while t1.next is not None:
-            if t1.data == data:
-                prev.next = t1.next
+        prev = self.head
+        temp = self.head.next
+
+        while temp is not None:
+            if temp.data == value:
+                prev.next = temp.next
                 return
-            prev = t1
-            t1 = t1.next
+            prev = temp
+            temp = temp.next
 
     def printLL(self):
         t1 = self.head
