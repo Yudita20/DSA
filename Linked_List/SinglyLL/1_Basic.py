@@ -1,10 +1,10 @@
 class Node:
-    def __init__(self,info,next=None):
-        self.data = info
+    def __init__(self, data, next=None):
+        self.data = data
         self.next = next
 
 class SinglyLL:
-    def __init__(self,head=None):
+    def __init__(self, head=None):
         self.head = head
 
     def insert_at_end(self , value):
@@ -22,18 +22,26 @@ class SinglyLL:
 
     def insert_at_beg(self , value):
         temp = Node(value)
+
+        # inserting when list is empty
+        if self.head is None:
+            self.head = temp
+            return
+
         temp.next = self.head
         self.head = temp
 
-    def insert_at_mid(self,value,after_data):
+    def insert_at_mid(self,value,after_data_value):
         temp = Node(value)
-        t1 = self.head
-        while t1 is not None:
-            if t1.data == after_data:
-                temp.next = t1.next
-                t1.next = temp
+        t = self.head
+
+        while t is not None:
+            if t.data == after_data_value:
+                temp.next = t.next
+                t.next = temp
                 return
-            t1 = t1.next
+
+            t = t.next
 
     def delete_from_beg(self):
         if self.head is not None:
@@ -75,7 +83,7 @@ class SinglyLL:
     def printLL(self):
         t1 = self.head
         while t1 is not None:
-            print(t1.data)
+            print(t1.data , end =" ")
             t1 = t1.next
 
 obj = SinglyLL()
