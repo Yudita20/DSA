@@ -25,27 +25,28 @@ class DoublyLL:
 
 
     def reverse_DLL(self):
-        t = self.head
+        if self.head is None:
+            return
 
-        while t is not None:
-           if t.next is None:
-               break
-           t = t.next
+        if self.head.next is None:
+            return self.head
 
-        first = self.head
-        last = t
+        prev_node = None
+        curr = self.head
 
-        while first != last and first.prev != last:
-            first.data , last.data = last.data , first.data
-            first = first.next
-            last = last.prev
+        while curr is not None:
+            prev_node = curr.prev
+            curr.prev , curr.next = curr.next , curr.prev
+            curr = curr.prev
+
+        self.head = prev_node.prev
+        return self.head
 
     def printLL(self):
-        t1 = self.head
-        while t1 is not None:
-            print(t1.data)
-            t1 = t1.next
-
+        t = self.head
+        while t is not None:
+            print(t.data)
+            t = t.next
 
 obj = DoublyLL()
 obj.insert_at_end(10)
@@ -53,5 +54,7 @@ obj.insert_at_end(20)
 obj.insert_at_end(30)
 obj.insert_at_end(40)
 obj.insert_at_end(50)
+obj.insert_at_end(55)
+obj.insert_at_end(57)
 obj.reverse_DLL()
 obj.printLL()
