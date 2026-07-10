@@ -10,4 +10,4 @@ class Python:
         return n * self.fact(n-1)
 
 sol = Python()
-print(sol.fact(3))
+print(sol.fact(100))
