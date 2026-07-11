@@ -1,3 +1,6 @@
+from wsgiref.validate import header_re
+
+
 class Node:
     def __init__(self,info,next=None):
         self.data = info
@@ -38,7 +41,7 @@ class SinglyLL:
 obj = SinglyLL()
 obj.insert_at_end(3)
 obj.insert_at_end(8)
-obj.insert_at_end(7)
+obj.insert_at_end(2)
 obj.insert_at_end(1)
 obj.insert_at_end(3)
 # obj.printLL()
