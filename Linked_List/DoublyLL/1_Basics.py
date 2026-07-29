@@ -5,11 +5,11 @@ class Node:
         self.next = next
 
 
-class doublyLL:
+class DoublyLL:
     def __init__(self, head=None):
         self.head = head
 
-    def insert_at_end(self, value):
+    def insertAtEnd(self, value):
         temp = Node(value)
 
         if self.head is None:
@@ -23,7 +23,7 @@ class doublyLL:
         t.next = temp
         temp.prev = t
 
-    def insert_at_beg(self, value):
+    def insertAtBeg(self,value):
         temp = Node(value)
 
         if self.head is None:
@@ -34,7 +34,7 @@ class doublyLL:
         self.head.prev = temp
         self.head = temp
 
-    def insert_at_mid(self, value, after_value):
+    def insertAtMid(self, value, after_data):
         temp = Node(value)
 
         if self.head is None:
@@ -43,7 +43,7 @@ class doublyLL:
 
         t = self.head
         while t is not None:
-            if t.data == after_value:
+            if t.data == after_data:
                 temp.next = t.next
                 if t.next is not None:
                     t.next.prev = temp
@@ -52,44 +52,25 @@ class doublyLL:
                 return
             t = t.next
 
-    def deletion_from_end(self):
+    def deletionLL(self, value):
         if self.head is None:
             return
 
-        if self.head.next is None:
-            self.head = None
+        # Deletion from starting
+        if self.head.data == value:
+            self.head = self.head.next
             return
 
         t = self.head
         while t.next is not None:
-            t = t.next
-
-        t.prev.next = None
-
-    def deletion_from_beg(self):
-        if self.head is None:
-            return
-
-        self.head = self.head.next
-        if self.head is not None:
-            self.head.prev = None
-
-    def deletion_from_mid(self, value):
-        if self.head is None:
-            return
-
-        t = self.head
-        while t is not None:
+            # deletion from mid
             if t.data == value:
-                if t == self.head:
-                    self.deletion_from_beg()
-                elif t.next is None:
-                    self.deletion_from_end()
-                else:
-                    t.prev.next = t.next
-                    t.next.prev = t.prev
+                t.prev = t.next
                 return
             t = t.next
+
+        # Deletion from end
+        t.prev.next = None
 
     def printLL(self):
         t = self.head
@@ -97,19 +78,18 @@ class doublyLL:
             print(t.data)
             t = t.next
 
-
-obj = doublyLL()
-obj.insert_at_end(10)
-obj.insert_at_end(20)
-obj.insert_at_end(30)
-obj.insert_at_end(40)
-obj.insert_at_end(50)
-obj.insert_at_beg(5)
-obj.insert_at_mid(15, 10)
-obj.deletion_from_end()
-obj.deletion_from_beg()
-obj.deletion_from_mid(15)
+obj = DoublyLL()
+obj.insertAtEnd(10)
+obj.insertAtEnd(20)
+obj.insertAtEnd(30)
+obj.insertAtEnd(40)
+obj.insertAtEnd(50)
+obj.insertAtBeg(5)
+obj.insertAtBeg(2)
+obj.insertAtMid(15, 10)
+obj.deletionLL(50)
 obj.printLL()
+
 
 
 
