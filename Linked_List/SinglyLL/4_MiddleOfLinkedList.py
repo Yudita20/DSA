@@ -54,7 +54,8 @@ class SinglyLL:
         return slow.data
 
 # Similar problems
-# First middle in even length linked list
+# First middle in even-length linked list
+
     def mol(self):
         # Empty linked list
         if self.head is None:
