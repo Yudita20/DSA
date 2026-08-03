@@ -38,6 +38,53 @@ class SinglyLL:
 
         self.head = prev
 
+    # Reverse the list using recursion
+    def reverseRecursion(self):
+        self.head = self._reverse(self.head)
+
+    def _reverse(self, head):
+        if head is None or head.next is None:
+            return head
+
+        new_head = self._reverse(head.next)
+        front = head.next
+        front.next = head
+        head.next = None
+        return new_head
+
+    # Print list in reverse order
+    def printListRecursion(self):
+        self._printReverse(self.head)
+
+    def _printReverse(self, head):
+        if head is None:
+            return
+        self._printReverse(head.next)
+        print(head.data)
+
+    # Count number of nodes using recursion
+    def countNodes(self):
+        return self._count(self.head)
+
+    def _count(self, head):
+        if head is None:
+            return 0
+        return 1 + self._count(head.next)
+
+    # Search nodes using recursion
+    def searchNodes(self, target):
+        return self._search(self.head, target)
+
+    def _search(self, head, target):
+        if head is None:
+            return False
+
+        if head.data == target:
+            return True
+
+        return self._search(head.next, target)
+
+    # Print the linked list
     def printLL(self):
         t = self.head
         while t is not None:
@@ -50,7 +97,8 @@ obj.insertAtEnd(10)
 obj.insertAtEnd(20)
 obj.insertAtEnd(30)
 obj.insertAtEnd(40)
-obj.reverseLL()
+# obj.reverseLL()
+obj.reverseRecursion()
 obj.printLL()
 
 
