@@ -5,20 +5,14 @@ class Node:
 
 class Solution:
     def detectLoopHash(self, head):
-        if head is None:
-            return
-
-        if head.next is None:
-            return False
-
-        hash_map = {}
+        visited = set()
         t = head
 
         while t:
-            if t in hash_map:
+            if t in visited:
                 return True
 
-            hash_map[t] = t.next
+            visited.add(t)
             t = t.next
 
         return False
