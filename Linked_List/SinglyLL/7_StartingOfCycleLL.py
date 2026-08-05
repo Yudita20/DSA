@@ -8,32 +8,37 @@ class Solution:
         slow = head
         fast = head
 
-        while fast and fast.next:
+        while fast is not None and fast.next is not None:
             slow = slow.next
             fast = fast.next.next
 
             if slow == fast:
-                slow = head
+                fast = head
                 while slow != fast:
-                    fast = fast.next
                     slow = slow.next
-
+                    fast = fast.next
                 return slow.data
-        return False
+        return None
 
 if __name__ == "__main__":
-    head = Node(3)
-    second = Node(1)
-    third = Node(7)
+    head = Node(1)
+    second = Node(2)
+    third = Node(3)
     fourth = Node(4)
     fifth = Node(5)
+    sixth = Node(6)
+    seventh= Node(7)
+    eighth = Node(8)
 
     head.next = second
     second.next = third
-    third.next = head
+    third.next = fourth
     fourth.next = fifth
-    # Create a loop
-    fifth.next = third
+    fifth.next = sixth
+    sixth.next = seventh
+    seventh.next = eighth
+    # Create a Loop
+    eighth.next = third
 
     sol = Solution()
     print(sol.detectLoop(head))
