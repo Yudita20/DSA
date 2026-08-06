@@ -5,23 +5,20 @@ class Node:
 
 class Solution:
     def detectLoop(self, head):
-        slow = head
-        fast = head
+        slow = fast = head
 
-        while fast and fast.next:
+        while fast is not None and fast.next is not None:
             slow = slow.next
             fast = fast.next.next
 
             if slow == fast:
-                return self.countLength(slow)
-
+                return self.countLengthLL(slow)
         return 0
 
-    def countLength(self , mp):
-        temp = mp
+    def countLengthLL(self, node):
+        temp = node
         count = 1
-
-        while temp.next != mp:
+        while temp.next != node:
             temp = temp.next
             count += 1
 
@@ -36,7 +33,7 @@ if __name__ == "__main__":
 
     head.next = second
     second.next = third
-    third.next = head
+    third.next = fourth
     fourth.next = fifth
     # Create a loop
     fifth.next = third
