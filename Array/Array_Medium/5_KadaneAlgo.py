@@ -22,18 +22,16 @@ def subarraySum_optimalII(arr):
 
 
 def subarray_sumKadane(arr):
-    curr_sum = 0
-    max_sum = float("-inf")
+    curr_sum = arr[0]
+    max_sum = arr[0]
 
-    for i in range(len(arr)):
-        curr_sum += arr[i]
+    for i in range(1, len(arr)):
+        curr_sum = max(arr[i] , arr[i] + curr_sum)
         max_sum = max(max_sum, curr_sum)
-        if curr_sum < 0:
-            curr_sum = 0
+
     return max_sum
 
-
-nums = [5,-3,5]
+nums = [-10,-3,-1]
 print(f"Max: {subarraySum_brute(nums)}")
 print(subarraySum_optimalII(nums))
 print(subarray_sumKadane(nums))
