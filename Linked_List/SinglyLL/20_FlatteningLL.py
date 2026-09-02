@@ -7,8 +7,8 @@ class Node:
 
 class Solution:
     def mergeLL(self, h1, h2):
-        dummy = Node(-1)
-        res = dummy
+        dummy_Node = Node(-1)
+        res = dummy_Node
 
         while h1 is not None and h2 is not None:
             if h1.data < h2.data:
@@ -26,10 +26,10 @@ class Solution:
         else:
             res.child = h2
 
-        if dummy.child:
-            dummy.child.next = None
+        if dummy_Node.child:
+            dummy_Node.child.next = None
 
-        return dummy.child
+        return dummy_Node.child
 
     def flattenLL(self, head):
         if head is None or head.next is None:
