@@ -13,7 +13,7 @@ def findPower(a , b):
     return result
 
 def countGoodNumber(n):
-    return findPower(5, (n+1)/2) * findPower(4, n/2)
+    return findPower(5, (n+1)//2) * findPower(4, n//2)
 
 if __name__ == "__main__":
     print(countGoodNumber(5))
