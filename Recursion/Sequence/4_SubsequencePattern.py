@@ -32,30 +32,24 @@ def subsequencesWithSumK(arr, k, index = 0, curr_sum = 0, curr = None, result = 
 
     return result
 
-def anySubsequenceWithSumK(arr, k, index = 0, curr_sum = 0, curr = None):
-    if curr is None:
-        curr = []
-
+def anySubsequenceWithSumK(arr, k, index = 0, curr_sum = 0):
     if index == len(arr):
         # Condition Satisfied
         if curr_sum == k:
-            print(curr)
             return True
         # Condition not satisfied
         else:
             return False
 
-    curr.append(arr[index])
-    if anySubsequenceWithSumK(arr, k, index + 1, curr_sum + arr[index], curr):
+    if anySubsequenceWithSumK(arr, k, index + 1, curr_sum + arr[index]):
         return True
-    curr.pop()
 
-    if anySubsequenceWithSumK(arr, k, index + 1, curr_sum, curr):
+    if anySubsequenceWithSumK(arr, k, index + 1, curr_sum):
         return True
 
     return False
 
 if __name__ == "__main__":
-    print(countSubK([1,1,1], 3))
-    print(subsequencesWithSumK([1, 1, 2], 2))
-    print(anySubsequenceWithSumK([1,2,1],2))
+    # print(countSubK([1,1,1], 3))
+    # print(subsequencesWithSumK([1, 1, 2], 2))
+    print(anySubsequenceWithSumK([4,3,9,2],10))
