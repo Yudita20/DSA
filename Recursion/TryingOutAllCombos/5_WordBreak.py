@@ -1,6 +1,3 @@
-def isExist(s, word_dct):
-    return s in word_dct
-
 def wordBreak(s, word_dct, idx = 0, curr_st = ""):
     if idx == len(s):
         return True
@@ -8,7 +5,7 @@ def wordBreak(s, word_dct, idx = 0, curr_st = ""):
 
     for i in range(idx, len(s)):
         curr_st += s[i]
-        if isExist(curr_st, word_dct):
+        if curr_st in word_dct:
 
             if wordBreak(s, word_dct, i + 1, ""):
                 return True
@@ -20,5 +17,10 @@ def wordBreak(s, word_dct, idx = 0, curr_st = ""):
 
 if __name__ == "__main__":
     st = "takeuforward"
-    word_dict = ["take" , "u" , "you", "forward"]
+    word_dict = ["take" , "u", "you", "forward"]
     print(wordBreak(st, word_dict))
+
+
+
+
+
