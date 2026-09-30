@@ -1,9 +1,9 @@
 import math
 
 def rightMostSetBit(n):
-   n =  n ^ (n & (n-1))
-   return int(math.log2(n)) + 1
+   right_most_bit =  n ^ (n & (n-1))
+   return right_most_bit, int(math.log2(right_most_bit)) + 1
 
 
 if __name__ == "__main__":
-    print(rightMostSetBit(8))
+    print(rightMostSetBit(12))
