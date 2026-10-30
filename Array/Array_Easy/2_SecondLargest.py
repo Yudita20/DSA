@@ -1,39 +1,43 @@
-def second_largest1(arr,low,high):
-    #TC:O(2*N)
-    #SC:O(1)
+class SecondLargestElement:
 
-    largest = float("-inf")
+    def __init__(self, arr):
+        self.arr = arr
+        print("Time complexity is O(n)\nSpace complexity is O(1)")
 
-    for i in range(low,high):
-        if arr[i]>largest:
-            largest = arr[i]
+    def second_largest_brute(self):
+        largest = float("-inf")
+        second_largest = float("-inf")
+        n = len(self.arr)
+        for i in range(n):
+            if self.arr[i] > largest:
+                largest = self.arr[i]
 
-    print(largest)
+        for i in range(n):
+            if self.arr[i] > second_largest and self.arr[i] != largest:
+                second_largest = self.arr[i]
 
-    second = float("-inf")
-    for i in range(low,high):
-        if (arr[i] > second) and (arr[i] != largest):
-            second = arr[i]
+        second_largest = second_largest if second_largest != float("-inf") else -1
+        return second_largest
 
-    return second
+    def second_largest_optimal(self):
+        largest = float("-inf")
+        second_largest = float("-inf")
+        n = len(self.arr)
+        for i in range(n):
+            if self.arr[i] > largest:
+                second_largest = largest
+                largest = self.arr[i]
+            elif self.arr[i] > second_largest and self.arr[i] != largest:
+                second_largest = self.arr[i]
 
-def second_largest(arr,low,high):
-    # TC:O(N)
-    # SC:O(1)
-
-    largest = float("-inf")
-    second = float("-inf")
-
-    for i in range(low,high):
-        if arr[i] >= largest:
-            second = largest
-            largest = arr[i]
-
-        elif arr[i]>second and arr[i] != largest:
-            second = arr[i]
-
-    return second
+        second_largest = second_largest if second_largest != float("-inf") else -1
+        return second_largest
 
 
-nums = [3,3,6,1]
-print(f"Second Largest : {second_largest(nums,0,len(nums))}")
+nums = [-2, -1]
+obj = SecondLargestElement(nums)
+print(obj.second_largest_brute())
+print(obj.second_largest_optimal())
+
+
+
