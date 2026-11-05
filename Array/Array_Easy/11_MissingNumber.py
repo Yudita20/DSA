@@ -46,7 +46,7 @@ def missing_num(arr):
     for i in range(len(arr)):
         xor1 = xor1^arr[i]
 
-    for i in range(1,len(arr)+2):
+    for i in range(1,len(arr)+1):
         xor2 = xor2^i
 
     return xor1^xor2
