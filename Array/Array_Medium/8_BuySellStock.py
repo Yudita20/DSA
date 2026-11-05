@@ -1,14 +1,12 @@
-def brute(arr):
-    min_elt = float("+inf")
+def buyAndSellStock(nums):
     max_profit = 0
-    i = 0
-    while i < len(arr):
-        if arr[i] < min_elt:
-            min_elt = arr[i]
+    buy_price = nums[0]
+    for i in range(1, len(nums)):
+        max_profit = max(nums[i] - buy_price, max_profit)
+        buy_price = min(buy_price, nums[i])
 
-        max_profit = max(max_profit , arr[i]-min_elt)
-        i += 1
     return max_profit
 
-nums = [2,4,1]
-print(brute(nums))
+
+arr = [7, 1, 5, 3, 3, 4]
+print(buyAndSellStock(arr))
